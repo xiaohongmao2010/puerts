@@ -9,7 +9,6 @@ cmake_policy(SET CMP0091 NEW)
 
 project(PuertsPlugin)
 
-target_compile_definitions (puerts PRIVATE WITH_INSPECTOR)
 
 set(CMAKE_CXX_STANDARD 14)
 
@@ -93,6 +92,8 @@ endmacro(source_group_by_dir)
 
 source_group_by_dir(${CMAKE_CURRENT_SOURCE_DIR} PUERTS_INC)
 source_group_by_dir(${CMAKE_CURRENT_SOURCE_DIR} PUERTS_SRC)
+
+target_compile_definitions (puerts PRIVATE WITH_INSPECTOR)
 
 
 if ( APPLE )
