@@ -33,8 +33,6 @@ set(BACKEND_ROOT ${PROJECT_SOURCE_DIR}/${JS_ENGINE})
 set(ThirdParty ${PROJECT_SOURCE_DIR}/../../unreal/Puerts/ThirdParty)
 
 
-target_compile_definitions (puerts PRIVATE WITH_INSPECTOR)
-
 string (REPLACE ";" "$<SEMICOLON>${BACKEND_ROOT}" BACKEND_INC_NAMES "${BACKEND_ROOT}${BACKEND_INC_NAMES}")
 string (REPLACE ";" "$<SEMICOLON>${BACKEND_ROOT}" BACKEND_LIB_NAMES "${BACKEND_ROOT}${BACKEND_LIB_NAMES}")
 string (REPLACE ";" "$<SEMICOLON>" BACKEND_DEFINITIONS "${BACKEND_DEFINITIONS}")
@@ -114,6 +112,8 @@ else ()
 endif ()
 
 # target_compile_definitions (puerts PRIVATE THREAD_SAFE)
+
+target_compile_definitions (puerts PRIVATE WITH_INSPECTOR)
 
 if ( WIN32 AND NOT CYGWIN )
     target_compile_definitions (puerts PRIVATE BUILDING_V8_SHARED)
